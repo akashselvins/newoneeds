@@ -1,0 +1,25 @@
+/* Title Description block styles */
+.title-description {
+  background: #c0392b; /* red background */
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+  padding: 1.75rem 1.25rem;
+  border-radius: 6px;
+  display: block;
+}
+.title-description h1,
+.title-description h2,
+.title-description h3 {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+}
+.title-description p {
+  margin: 0;
+  opacity: 0.95;
+}
+
+@media (min-width: 600px) {
+  .title-description {
+    padding: 2.25rem 2rem;
+  }
+}
