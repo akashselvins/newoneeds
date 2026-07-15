@@ -1,96 +1,179 @@
-/* ===========================
-   Left Column
-=========================== */
+.addon-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 1fr;
+  gap: 48px;
+  align-items: center;
 
-.left-content p {
+  background: #fff;
+  border-radius: 12px;
+  padding: 36px 40px;
+
+  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+}
+
+/* -----------------------
+   Columns
+----------------------- */
+
+.left-content,
+.middle-content,
+.right-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.middle-content {
+  justify-content: center;
+}
+
+.right-content {
+  justify-content: center;
+}
+
+/* -----------------------
+   OPTIONAL ADD-ON Tag
+----------------------- */
+
+.left-content .tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: fit-content;
-  margin: 0 0 22px;
+
+  margin: 0 0 24px;
+
   padding: 8px 18px;
-  background: #dce8ff;
+
+  background: #dbe7ff;
+
   border-radius: 999px;
-  text-transform: uppercase;
-  font-size: 13px;
+
   font-family: TcomLight, HelvNeueLight, "Helvetica Neue Light", Arial, sans-serif;
+
+  font-size: 13px;
+
   font-weight: 400;
-  letter-spacing: .5px;
+
+  letter-spacing: .4px;
+
+  text-transform: uppercase;
 }
 
+/* -----------------------
+   Title
+----------------------- */
+
+.left-content h1,
 .left-content h2,
 .left-content h3,
 .left-content h4 {
-  font-size: 48px;
-  font-weight: 700;
+  margin: 0;
+
   color: #000;
+
+  font-size: 48px;
+
+  font-weight: 700;
+
   line-height: 1.1;
 }
 
-/* ===========================
-   Middle Column
-=========================== */
+/* -----------------------
+   Description
+----------------------- */
 
 .middle-content p {
-  font-size: 20px;
+  margin: 0;
+
   color: #000;
-  line-height: 1.6;
+
   font-family: TcomLight, HelvNeueLight, "Helvetica Neue Light", Arial, sans-serif;
+
+  font-size: 20px;
+
+  line-height: 1.6;
 }
 
-/* ===========================
-   Right Column
-=========================== */
 
-.right-content p {
-  margin: 0 0 18px;
+/* -----------------------
+   Price
+----------------------- */
+
+.right-content .price {
+  margin: 0 0 20px;
+
   color: #000;
-  font-size: 22px;
+
   font-family: TcomLight, HelvNeueLight, "Helvetica Neue Light", Arial, sans-serif;
+
+  font-size: 22px;
+
+  line-height: 1.2;
 }
 
 /* $25 */
 
-.right-content p span,
-.right-content p strong {
-  font-size: 56px;
+.right-content .price span {
+  font-size: 54px;
+
   font-weight: 700;
-  color: #000;
+
   font-family: Arial, sans-serif;
+
+  color: #000;
 }
 
-/* Link */
+/* -----------------------
+   Link
+----------------------- */
 
-.right-content a {
+.right-content .addon-link {
+  width: fit-content;
+
   color: #000;
-  text-decoration: underline;
-  font-weight: 700;
+
   font-size: 18px;
+
+  font-weight: 700;
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
 }
 
-.right-content a:hover {
+.right-content .addon-link:hover {
   color: #000;
 }
 
-/* ===========================
-   Mobile
-=========================== */
+/* -----------------------
+   Responsive
+----------------------- */
 
-@media (max-width:768px){
+@media (max-width: 991px) {
 
+  .addon-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 24px;
+  }
+
+  .left-content h1,
   .left-content h2,
   .left-content h3,
-  .left-content h4{
-    font-size:34px;
+  .left-content h4 {
+    font-size: 34px;
   }
 
-  .middle-content p{
-    font-size:18px;
+  .middle-content p {
+    font-size: 18px;
   }
 
-  .right-content p span,
-  .right-content p strong{
-    font-size:42px;
+  .right-content .price span {
+    font-size: 40px;
   }
 
+  .right-content .addon-link {
+    font-size: 16px;
+  }
 }

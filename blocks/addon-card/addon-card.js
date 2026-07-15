@@ -8,4 +8,44 @@ export default function decorate(block) {
   left.classList.add('left-content');
   middle.classList.add('middle-content');
   right.classList.add('right-content');
+
+  /* -------------------------
+     OPTIONAL ADD-ON tag
+  ------------------------- */
+
+  const tag = left.querySelector('p');
+
+  if (tag) {
+    tag.classList.add('tag');
+  }
+
+  /* -------------------------
+     Price styling
+  ------------------------- */
+
+  const price = right.querySelector('p');
+
+  if (price) {
+    const text = price.textContent.trim();
+
+    const match = text.match(/^(\$[\d,.]+)\s*(.*)$/);
+
+    if (match) {
+      price.innerHTML = `<span>${match[1]}</span> ${match[2]}`;
+    }
+
+    price.classList.add('price');
+  }
+
+  /* -------------------------
+     CTA Link
+  ------------------------- */
+
+  const link = right.querySelector('a');
+
+  if (link) {
+    link.classList.add('addon-link');
+    link.target = '_blank';
+    link.rel = 'noopener';
+  }
 }
