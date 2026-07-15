@@ -1,0 +1,89 @@
+.shopping2.block {
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 0 48px;
+}
+
+.shopping2-container > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 64px;
+  background: #e60000;
+}
+
+.shopping2-container > div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping2.block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shopping2.block li {
+  margin-bottom: 18px;
+}
+
+.shopping2.block h2,
+.shopping2.block h3,
+.shopping2.block p:first-child {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 24px;
+}
+
+.shopping2.block a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.shopping2.block a:hover {
+  text-decoration: underline;
+}
+
+/* CTA */
+
+.shopping2-container > div > div:last-child h2,
+.shopping2-container > div > div:last-child h3 {
+  font-size: 42px;
+  font-weight: 700;
+  text-transform: none;
+  margin-bottom: 20px;
+}
+
+.shopping2-container > div > div:last-child p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.shopping2.block .button,
+.shopping2.block .button-container a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+  .shopping2-container > div {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .shopping2.block {
+    padding: 0 24px;
+  }
+}
