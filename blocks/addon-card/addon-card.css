@@ -1,0 +1,85 @@
+.addon-card {
+  display: grid;
+  grid-template-columns: 1.3fr 1.4fr 1fr;
+  gap: 48px;
+
+  background: #fff;
+
+  padding: 40px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-content .tag {
+  display: inline-block;
+
+  padding: 8px 18px;
+
+  border-radius: 20px;
+
+  background: #dce8ff;
+
+  font-size: 14px;
+
+  width: fit-content;
+
+  margin-bottom: 22px;
+}
+
+.left-content h2,
+.left-content h3,
+.left-content h4 {
+  margin: 0;
+
+  font-size: 44px;
+}
+
+.middle-content {
+  display: flex;
+
+  align-items: center;
+}
+
+.middle-content p {
+  margin: 0;
+
+  line-height: 1.7;
+}
+
+.right-content {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.right-content .price {
+  font-size: 22px;
+
+  margin-bottom: 20px;
+}
+
+.right-content .price strong {
+  font-size: 52px;
+}
+
+.right-content a {
+  font-weight: 700;
+}
+
+@media (max-width:768px){
+
+.addon-card{
+    grid-template-columns:1fr;
+    gap:24px;
+}
+
+}
