@@ -1,6 +1,6 @@
 .cards-new {
   display: grid;
-  grid-template-columns: repeat(3, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
 }
@@ -43,8 +43,8 @@
 
 .info-button {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
+  right: 14px;
+  bottom: 14px;
   padding: 4px 12px;
   border: 2px solid #fff;
   border-radius: 18px;
@@ -61,8 +61,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-
-  /* Toyota spacing */
   padding: 40px 40px 0;
 }
 
@@ -78,8 +76,8 @@
   flex: 1;
   margin: 0;
   font-size: 16px;
-  line-height: 1.7;
-  color: #222;
+  line-height: 1.75;
+  color: #202020;
 }
 
 .card-content strong {
@@ -90,9 +88,7 @@
 
 .card-price {
   margin-top: auto;
-
-  /* Toyota spacing */
-  padding: 40px 40px 40px;
+  padding: 40px;
 }
 
 .card-price p {
@@ -100,21 +96,21 @@
   align-items: flex-end;
   gap: 4px;
   margin: 0;
-  font-size: 18px;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .card-price .price {
-  font-size: 52px;
+  font-size: 32px;
   font-weight: 700;
-  line-height: .9;
-  letter-spacing: -.5px;
+  line-height: 1;
+  color: #000;
 }
 
 .card-price sup {
+  font-size: 10px;
   position: relative;
-  top: -.55em;
-  font-size: 11px;
+  top: -.45em;
 }
 
 /* ---------------- TABLET ---------------- */
@@ -126,7 +122,7 @@
   }
 
   .card-content{
-    padding:32px;
+    padding:32px 32px 0;
   }
 
   .card-price{
@@ -149,23 +145,29 @@
   }
 
   .card-content{
-    padding:24px;
+    padding:24px 24px 0;
   }
 
   .card-content h3{
     font-size:28px;
+    margin-bottom:16px;
   }
 
   .card-content>p{
     font-size:15px;
+    line-height:1.7;
   }
 
   .card-price{
     padding:24px;
   }
 
+  .card-price p{
+    font-size:15px;
+  }
+
   .card-price .price{
-    font-size:42px;
+    font-size:28px;
   }
 
 }
