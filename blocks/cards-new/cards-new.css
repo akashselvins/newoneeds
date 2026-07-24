@@ -130,22 +130,20 @@
   }
 
 }
-/* =======================
+/* ==========================
    TOYOTA INFO POPUP
-======================= */
+========================== */
 
 .info-modal {
   position: fixed;
   inset: 0;
   display: none;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .info-modal.show {
   display: block;
 }
-
-/* Overlay */
 
 .info-modal-overlay {
   position: absolute;
@@ -158,17 +156,16 @@
 .info-modal-content {
   position: absolute;
   left: 50%;
-  bottom: 24px;
+  bottom: 20px;
   transform: translateX(-50%);
 
-  width: calc(100% - 48px);
-  max-width: 1400px;
+  width: calc(100vw - 64px);
+  max-width: 1800px;
+  min-height: 104px;
 
-  background: #333;
-  color: #fff;
+  background: #343434;
 
-  border-radius: 0;
-  padding: 28px 40px;
+  padding: 32px 40px;
 
   display: flex;
   align-items: center;
@@ -179,20 +176,23 @@
   animation: toyotaPopup .25s ease;
 }
 
-/* Popup text */
+/* Text */
 
 .modal-body {
-  font-size: 18px;
-  font-weight: 600;
+  flex: 1;
   color: #fff;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1.5;
+  padding-right: 80px;
 }
 
-/* Close */
+/* Close Button */
 
 .modal-close {
-  width: 44px;
-  height: 44px;
+
+  width: 48px;
+  height: 48px;
 
   border: none;
   border-radius: 50%;
@@ -200,22 +200,22 @@
   background: #fff;
   color: #000;
 
-  font-size: 30px;
-  font-weight: 400;
-
-  cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
+  font-size: 34px;
+  font-weight: 400;
+
   flex-shrink: 0;
 
-  transition: .2s;
+  transition: background .2s ease;
 }
 
-.modal-close:hover {
-  background: #f3f3f3;
+.modal-close:hover{
+  background:#f2f2f2;
 }
 
 /* Animation */
@@ -223,17 +223,48 @@
 @keyframes toyotaPopup {
 
   from{
-    transform:translate(-50%,100%);
     opacity:0;
+    transform:translate(-50%,40px);
   }
 
   to{
-    transform:translate(-50%,0);
     opacity:1;
+    transform:translate(-50%,0);
   }
 
 }
 
+/* Mobile */
+
+@media (max-width:768px){
+
+  .info-modal-content{
+
+    width:calc(100vw - 32px);
+
+    padding:24px;
+
+    min-height:90px;
+
+  }
+
+  .modal-body{
+
+    font-size:15px;
+
+    padding-right:24px;
+
+  }
+
+  .modal-close{
+
+    width:40px;
+    height:40px;
+    font-size:28px;
+
+  }
+
+}
 /* ---------------- MOBILE ---------------- */
 
 @media (max-width:767px){
