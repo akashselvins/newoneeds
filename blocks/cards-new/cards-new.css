@@ -43,9 +43,9 @@
 
 .info-button {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
-  padding: 3px 12px;
+  right: 16px;
+  bottom: 16px;
+  padding: 4px 12px;
   border: 2px solid #fff;
   border-radius: 18px;
   background: rgba(0,0,0,.9);
@@ -53,12 +53,6 @@
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: .2s;
-}
-
-.info-button:hover {
-  background: #fff;
-  color: #000;
 }
 
 /* ---------------- CONTENT ---------------- */
@@ -67,23 +61,24 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 24px 22px 0;
+
+  /* Toyota spacing */
+  padding: 40px 40px 0;
 }
 
 .card-content h3 {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   font-size: 32px;
   line-height: 1.05;
   font-weight: 700;
   color: #000;
 }
 
-/* Description grows so price stays at bottom */
 .card-content > p {
   flex: 1;
   margin: 0;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: #222;
 }
 
@@ -95,14 +90,16 @@
 
 .card-price {
   margin-top: auto;
-  padding: 30px 22px 24px;
+
+  /* Toyota spacing */
+  padding: 40px 40px 40px;
 }
 
 .card-price p {
-  margin: 0;
   display: flex;
   align-items: flex-end;
   gap: 4px;
+  margin: 0;
   font-size: 18px;
   line-height: 1;
 }
@@ -111,76 +108,64 @@
   font-size: 52px;
   font-weight: 700;
   line-height: .9;
-  letter-spacing: -1px;
+  letter-spacing: -.5px;
 }
 
 .card-price sup {
-  font-size: 11px;
   position: relative;
   top: -.55em;
+  font-size: 11px;
 }
 
 /* ---------------- TABLET ---------------- */
 
-@media (max-width: 1024px) {
+@media (max-width:1024px){
 
-  .cards-new {
-    grid-template-columns: repeat(2, 1fr);
+  .cards-new{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .card-image img {
-    height: 220px;
+  .card-content{
+    padding:32px;
   }
 
-  .card-content h3 {
-    font-size: 30px;
+  .card-price{
+    padding:32px;
   }
 
-  .card-content > p {
-    font-size: 15px;
-  }
-
-  .card-price .price {
-    font-size: 46px;
-  }
 }
 
 /* ---------------- MOBILE ---------------- */
 
-@media (max-width: 767px) {
+@media (max-width:767px){
 
-  .cards-new {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .cards-new{
+    grid-template-columns:1fr;
+    gap:20px;
   }
 
-  .card-image img {
-    height: 210px;
+  .card-image img{
+    height:210px;
   }
 
-  .card-content {
-    padding: 20px 20px 0;
+  .card-content{
+    padding:24px;
   }
 
-  .card-content h3 {
-    font-size: 28px;
-    margin-bottom: 14px;
+  .card-content h3{
+    font-size:28px;
   }
 
-  .card-content > p {
-    font-size: 15px;
-    line-height: 1.7;
+  .card-content>p{
+    font-size:15px;
   }
 
-  .card-price {
-    padding: 24px 20px 20px;
+  .card-price{
+    padding:24px;
   }
 
-  .card-price .price {
-    font-size: 42px;
+  .card-price .price{
+    font-size:42px;
   }
 
-  .card-price p {
-    font-size: 16px;
-  }
 }
