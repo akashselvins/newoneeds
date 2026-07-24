@@ -38,52 +38,160 @@
   height: 235px;
   object-fit: cover;
 }
-/* ==========================================
-   TOYOTA CUTLINE INFO
-========================================== */
 
-.tcom-cutline-info {
-  position: fixed;
-  left: 32px;
-  right: 32px;
-  bottom: 24px;
+/* ---------------- INFO BUTTON ---------------- */
 
-  display: none;
-
-  background: #343434;
+.info-button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 4px 12px;
+  border: 2px solid #fff;
+  border-radius: 18px;
+  background: rgba(0,0,0,.9);
   color: #fff;
-
-  z-index: 99999;
-
-  overflow: hidden;
-
-  animation: slideUp .25s ease;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.tcom-cutline-info.is-open {
+/* ---------------- CONTENT ---------------- */
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 40px 40px 0;
+}
+
+.card-content h3 {
+  margin: 0 0 20px;
+  font-size: 32px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: #000;
+}
+
+.card-content > p {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #202020;
+}
+
+.card-content strong {
+  font-weight: 700;
+}
+
+/* ---------------- PRICE ---------------- */
+
+.card-price {
+  margin-top: auto;
+  padding: 40px;
+}
+
+.card-price p {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.card-price .price {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+}
+
+.card-price sup {
+  font-size: 10px;
+  position: relative;
+  top: -.45em;
+}
+
+/* ---------------- TABLET ---------------- */
+
+@media (max-width:1024px){
+
+  .cards-new{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .card-content{
+    padding:32px 32px 0;
+  }
+
+  .card-price{
+    padding:32px;
+  }
+
+}
+/* ==========================
+   TOYOTA INFO POPUP
+========================== */
+
+.info-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 99999;
+}
+
+.info-modal.show {
   display: block;
 }
 
-.tcom-cutline-info .content-wrapper {
-  padding: 32px 88px 32px 40px;
+.info-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
 }
 
-.tcom-cutline-info .content {
+/* Popup */
+
+.info-modal-content {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+
+  width: calc(100vw - 64px);
+  max-width: 1800px;
+  min-height: 104px;
+
+  background: #343434;
+
+  padding: 28px 40px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+/* Text */
+
+.modal-body {
+  flex: 1;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.5;
+
+  max-width: 70%;
 }
 
 /* Close Button */
 
-.tcom-cutline-info .btn-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+.modal-close {
+  margin-left: auto;
 
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
 
   border: none;
   border-radius: 50%;
@@ -95,82 +203,32 @@
   align-items: center;
   justify-content: center;
 
+  font-size: 30px;
+
   cursor: pointer;
-
-  padding: 0;
-
-  transition: background .2s ease;
 }
 
-.tcom-cutline-info .btn-close:hover {
-  background: #f3f3f3;
-}
 
-.tcom-cutline-info .btn-close svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+.modal-close:hover{
+  background:#f2f2f2;
 }
 
 /* Animation */
 
-@keyframes slideUp {
+@keyframes toyotaPopup {
 
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  from{
+    opacity:0;
+    transform:translate(-50%,40px);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-}
-
-/* Tablet */
-
-@media (max-width: 1024px) {
-
-  .tcom-cutline-info {
-    left: 24px;
-    right: 24px;
-    bottom: 20px;
-  }
-
-  .tcom-cutline-info .content-wrapper {
-    padding: 28px 72px 28px 32px;
+  to{
+    opacity:1;
+    transform:translate(-50%,0);
   }
 
 }
 
-/* Mobile */
-
-@media (max-width: 767px) {
-
-  .tcom-cutline-info {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-  }
-
-  .tcom-cutline-info .content-wrapper {
-    padding: 24px 64px 24px 20px;
-  }
-
-  .tcom-cutline-info .content {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .tcom-cutline-info .btn-close {
-    width: 40px;
-    height: 40px;
-    top: 16px;
-    right: 16px;
-  }
-
-}
 /* Mobile */
 
 @media (max-width:768px){
