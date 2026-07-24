@@ -130,6 +130,109 @@
   }
 
 }
+/* =======================
+   TOYOTA INFO POPUP
+======================= */
+
+.info-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.info-modal.show {
+  display: block;
+}
+
+/* Overlay */
+
+.info-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+}
+
+/* Popup */
+
+.info-modal-content {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+
+  width: calc(100% - 48px);
+  max-width: 1400px;
+
+  background: #333;
+  color: #fff;
+
+  border-radius: 0;
+  padding: 28px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  animation: toyotaPopup .25s ease;
+}
+
+/* Popup text */
+
+.modal-body {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* Close */
+
+.modal-close {
+  width: 44px;
+  height: 44px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #fff;
+  color: #000;
+
+  font-size: 30px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  transition: .2s;
+}
+
+.modal-close:hover {
+  background: #f3f3f3;
+}
+
+/* Animation */
+
+@keyframes toyotaPopup {
+
+  from{
+    transform:translate(-50%,100%);
+    opacity:0;
+  }
+
+  to{
+    transform:translate(-50%,0);
+    opacity:1;
+  }
+
+}
 
 /* ---------------- MOBILE ---------------- */
 
