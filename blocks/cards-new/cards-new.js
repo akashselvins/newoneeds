@@ -1,24 +1,33 @@
 export default function decorate(block) {
-  // Create popup only once
-  if (!document.querySelector('.tcom-cutline-info')) {
-    const popup = document.createElement('section');
+  // Create modal only once
+  if (!document.querySelector('.info-modal')) {
+    const modal = document.createElement('div');
 
-    popup.className = 'tcom-cutline-info';
+    modal.className = 'info-modal';
 
-    popup.innerHTML = `
-      <button class="btn-close" aria-label="Close">
-        ✕
-      </button>
+    modal.innerHTML = `
+<div class="info-modal-overlay"></div>
 
-      <div class="content-wrapper">
-        <div class="content"></div>
-      </div>
-    `;
+<div class="info-modal-content">
 
-    document.body.append(popup);
+<div class="modal-body"></div>
 
-    popup.querySelector('.btn-close').addEventListener('click', () => {
-      popup.classList.remove('is-open');
+<button class="modal-close" aria-label="Close">
+&times;
+</button>
+
+</div>
+`;
+
+    document.body.append(modal);
+
+    // Close modal
+    modal.querySelector('.modal-close').addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+
+    modal.querySelector('.info-modal-overlay').addEventListener('click', () => {
+      modal.classList.remove('show');
     });
   }
 
@@ -27,50 +36,41 @@ export default function decorate(block) {
 
     if (cols.length < 3) return;
 
-    /* ---------------- IMAGE ---------------- */
+    /* ---------------- Image ---------------- */
 
     cols[0].classList.add('card-image');
 
     const picture = cols[0].querySelector('picture');
 
-    /* ---------------- POPUP CONTENT ---------------- */
-
+    // Read popup content from 4th column
     let popupContent = '';
 
-    if (cols.length > 3) {
-      popupContent = cols[3].innerHTML.trim();
-      cols[3].remove();
+    if (cols[3]) {
+      popupContent = cols[3].innerHTML;
+      cols[3].remove(); // Hide authoring column
     }
-
-    /* ---------------- INFO BUTTON ---------------- */
 
     if (picture) {
       const infoBtn = document.createElement('button');
-
       infoBtn.className = 'info-button';
       infoBtn.textContent = 'Info';
-      infoBtn.setAttribute('aria-label', 'Info');
-
-      // Same approach Toyota uses
-      infoBtn.dataset.cutline = popupContent;
 
       infoBtn.addEventListener('click', () => {
-        const popup = document.querySelector('.tcom-cutline-info');
+        const modal = document.querySelector('.info-modal');
 
-        popup.querySelector('.content').innerHTML =
-          infoBtn.dataset.cutline;
+        modal.querySelector('.modal-body').innerHTML = popupContent;
 
-        popup.classList.add('is-open');
+        modal.classList.add('show');
       });
 
       cols[0].append(infoBtn);
     }
 
-    /* ---------------- CONTENT ---------------- */
+    /* ---------------- Content ---------------- */
 
     cols[1].classList.add('card-content');
 
-    /* ---------------- PRICE ---------------- */
+    /* ---------------- Price ---------------- */
 
     cols[2].classList.add('card-price');
 
