@@ -10,11 +10,11 @@ export default function decorate(block) {
 
 <div class="info-modal-content">
 
-<div class="modal-body"></div>
+    <div class="modal-body"></div>
 
-<button class="modal-close" aria-label="Close">
-&times;
-</button>
+    <div class="modal-spacer"></div>
+
+    <button class="modal-close" aria-label="Close">✕</button>
 
 </div>
 `;
