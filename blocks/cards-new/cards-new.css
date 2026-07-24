@@ -47,7 +47,7 @@
   bottom: 12px;
   padding: 3px 12px;
   border: 2px solid #fff;
-  border-radius: 16px;
+  border-radius: 18px;
   background: rgba(0,0,0,.9);
   color: #fff;
   font-size: 12px;
@@ -64,19 +64,23 @@
 /* ---------------- CONTENT ---------------- */
 
 .card-content {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  padding: 22px 22px 0;
+  padding: 24px 22px 0;
 }
 
 .card-content h3 {
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   font-size: 32px;
   line-height: 1.05;
   font-weight: 700;
   color: #000;
 }
 
-.card-content p {
+/* Description grows so price stays at bottom */
+.card-content > p {
+  flex: 1;
   margin: 0;
   font-size: 16px;
   line-height: 1.75;
@@ -91,7 +95,7 @@
 
 .card-price {
   margin-top: auto;
-  padding: 24px 22px 22px;
+  padding: 30px 22px 24px;
 }
 
 .card-price p {
@@ -104,15 +108,16 @@
 }
 
 .card-price .price {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   line-height: .9;
+  letter-spacing: -1px;
 }
 
 .card-price sup {
   font-size: 11px;
   position: relative;
-  top: -.5em;
+  top: -.55em;
 }
 
 /* ---------------- TABLET ---------------- */
@@ -129,6 +134,14 @@
 
   .card-content h3 {
     font-size: 30px;
+  }
+
+  .card-content > p {
+    font-size: 15px;
+  }
+
+  .card-price .price {
+    font-size: 46px;
   }
 }
 
@@ -154,13 +167,13 @@
     margin-bottom: 14px;
   }
 
-  .card-content p {
+  .card-content > p {
     font-size: 15px;
     line-height: 1.7;
   }
 
   .card-price {
-    padding: 20px;
+    padding: 24px 20px 20px;
   }
 
   .card-price .price {
