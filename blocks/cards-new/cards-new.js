@@ -6,18 +6,16 @@ export default function decorate(block) {
     modal.className = 'info-modal';
 
     modal.innerHTML = `
-<div class="info-modal-overlay"></div>
+      <div class="info-modal-overlay"></div>
 
-<div class="info-modal-content">
+      <div class="info-modal-content">
 
-<div class="modal-body"></div>
+        <button class="modal-close">&times;</button>
 
-<button class="modal-close" aria-label="Close">
-&times;
-</button>
+        <div class="modal-body"></div>
 
-</div>
-`;
+      </div>
+    `;
 
     document.body.append(modal);
 
