@@ -175,50 +175,56 @@
   .right-content .addon-link {
     font-size: 16px;
   }
-}
-@media (max-width: 768px) {
+}/* ===========================
+   TABLET + MOBILE
+=========================== */
 
-  .addon-card > div {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px;
+@media (max-width:991px){
+
+  .addon-card > div{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+    padding:24px;
+    align-items:start;
   }
 
   .left-content,
   .middle-content,
-  .right-content {
-    width: 100%;
+  .right-content{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
   }
 
-  .left-content {
-    align-items: flex-start;
-  }
-
-  .middle-content {
-    align-items: flex-start;
-  }
-
-  .right-content {
-    align-items: flex-start;
+  .left-content .tag{
+    margin-bottom:18px;
   }
 
   .left-content h1,
   .left-content h2,
   .left-content h3,
-  .left-content h4 {
-    font-size: 34px;
+  .left-content h4{
+    font-size:34px;
+    line-height:1.2;
   }
 
-  .middle-content p {
-    font-size: 18px;
+  .middle-content p{
+    font-size:18px;
+    line-height:1.5;
   }
 
-  .right-content .price span {
-    font-size: 42px;
+  .right-content .price{
+    margin-bottom:14px;
   }
 
-  .right-content .addon-link {
-    font-size: 16px;
+  .right-content .price span{
+    font-size:42px;
   }
+
+  .right-content .addon-link{
+    font-size:16px;
+  }
+
 }
