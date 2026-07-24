@@ -1,32 +1,29 @@
 export default function decorate(block) {
-  // Create modal only once
-  if (!document.querySelector('.info-modal')) {
-    const modal = document.createElement('div');
+  // Create popup only once
+  let modal = document.querySelector('.info-modal');
 
+  if (!modal) {
+    modal = document.createElement('div');
     modal.className = 'info-modal';
 
     modal.innerHTML = `
       <div class="info-modal-overlay"></div>
 
       <div class="info-modal-content">
-
-        <button class="modal-close">&times;</button>
+        <button class="modal-close" aria-label="Close">&times;</button>
 
         <div class="modal-body"></div>
-
       </div>
     `;
 
     document.body.append(modal);
 
-    // Close modal
-    modal.querySelector('.modal-close').addEventListener('click', () => {
+    const closeModal = () => {
       modal.classList.remove('show');
-    });
+    };
 
-    modal.querySelector('.info-modal-overlay').addEventListener('click', () => {
-      modal.classList.remove('show');
-    });
+    modal.querySelector('.modal-close').addEventListener('click', closeModal);
+    modal.querySelector('.info-modal-overlay').addEventListener('click', closeModal);
   }
 
   [...block.children].forEach((card) => {
@@ -34,29 +31,36 @@ export default function decorate(block) {
 
     if (cols.length < 3) return;
 
-    /* ---------------- Image ---------------- */
+    /* ---------------- IMAGE ---------------- */
 
     cols[0].classList.add('card-image');
 
     const picture = cols[0].querySelector('picture');
 
-    // Read popup content from 4th column
+    /* ---------------- POPUP CONTENT ---------------- */
+
     let popupContent = '';
 
-    if (cols[3]) {
-      popupContent = cols[3].innerHTML;
-      cols[3].remove(); // Hide authoring column
+    if (cols.length > 3) {
+      popupContent = cols[3].innerHTML.trim();
+      cols[3].remove();
     }
+
+    /* ---------------- INFO BUTTON ---------------- */
 
     if (picture) {
       const infoBtn = document.createElement('button');
+
       infoBtn.className = 'info-button';
       infoBtn.textContent = 'Info';
+      infoBtn.setAttribute('aria-label', 'Info');
+
+      // Store popup text like Toyota
+      infoBtn.dataset.cutline = popupContent;
 
       infoBtn.addEventListener('click', () => {
-        const modal = document.querySelector('.info-modal');
-
-        modal.querySelector('.modal-body').innerHTML = popupContent;
+        modal.querySelector('.modal-body').innerHTML =
+          infoBtn.dataset.cutline || '';
 
         modal.classList.add('show');
       });
@@ -64,11 +68,11 @@ export default function decorate(block) {
       cols[0].append(infoBtn);
     }
 
-    /* ---------------- Content ---------------- */
+    /* ---------------- CONTENT ---------------- */
 
     cols[1].classList.add('card-content');
 
-    /* ---------------- Price ---------------- */
+    /* ---------------- PRICE ---------------- */
 
     cols[2].classList.add('card-price');
 
