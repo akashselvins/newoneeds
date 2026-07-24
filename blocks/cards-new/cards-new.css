@@ -1,111 +1,42 @@
 .cards-new {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:40px;
-}
-
-.cards-new > div{
-  background:#fff;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 2px 8px rgba(0,0,0,.12);
-  display:flex;
-  flex-direction:column;
-}
-
-.card-image{
-  position:relative;
-}
-
-.card-image img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  display:block;
-}
-
-.info-button{
-  position:absolute;
-  right:16px;
-  bottom:16px;
-  background:#111;
-  color:#fff;
-  border:2px solid #fff;
-  border-radius:20px;
-  padding:4px 12px;
-  cursor:pointer;
-}
-
-.card-content{
-  padding:32px;
-  flex:1;
-}
-
-.card-content h3{
-  font-size:42px;
-  margin:0 0 18px;
-  font-weight:700;
-}
-
-.card-content p{
-  font-size:21px;
-  line-height:1.65;
-}
-
-.card-price{
-  padding:0 32px 32px;
-}
-
-.card-price p{
-  margin:0;
-  font-size:22px;
-}
-
-.card-price .price{
-  font-size:56px;
-  font-weight:700;
-  line-height:1;
-}
-
-.card-price sup{
-  font-size:12px;
-  vertical-align:top;
-}.cards-new {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(340px, 1fr));
+  justify-content: center;
   gap: 40px;
 }
+
+/* ---------------- CARD ---------------- */
 
 .cards-new > div {
   display: flex;
   flex-direction: column;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
-  height: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .12);
+  min-height: 735px;
 }
 
 /* ---------------- IMAGE ---------------- */
 
 .card-image {
   position: relative;
-  flex: 0 0 auto;
   line-height: 0;
+  flex: 0 0 auto;
 }
 
 .card-image p {
   margin: 0;
 }
 
-.card-image picture {
-  display: block;
-}
-
+.card-image picture,
 .card-image img {
   display: block;
   width: 100%;
-  height: 260px;
+}
+
+.card-image img {
+  height: 248px;
   object-fit: cover;
 }
 
@@ -113,36 +44,45 @@
 
 .info-button {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 2px solid #fff;
-  background: #111;
+  right: 16px;
+  bottom: 16px;
+  padding: 4px 14px;
+  background: rgba(0, 0, 0, .9);
   color: #fff;
+  border: 2px solid #fff;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 12px;
+  font-weight: 600;
   line-height: 1;
+  transition: .2s ease;
+}
+
+.info-button:hover {
+  background: #fff;
+  color: #000;
 }
 
 /* ---------------- CONTENT ---------------- */
 
 .card-content {
   flex: 1;
-  padding: 28px;
+  padding: 40px 34px 26px;
 }
 
 .card-content h3 {
-  margin: 0 0 18px;
-  font-size: 42px;
+  margin: 0 0 24px;
+  font-size: 58px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: .95;
+  letter-spacing: -1.5px;
 }
 
 .card-content p {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 21px;
+  line-height: 1.6;
+  color: #202020;
 }
 
 .card-content strong {
@@ -152,7 +92,8 @@
 /* ---------------- PRICE ---------------- */
 
 .card-price {
-  padding: 0 28px 28px;
+  margin-top: auto;
+  padding: 0 34px 34px;
 }
 
 .card-price p {
@@ -161,32 +102,60 @@
   align-items: flex-end;
   gap: 6px;
   flex-wrap: wrap;
-  font-size: 20px;
+  font-size: 21px;
+  line-height: 1;
 }
 
 .card-price .price {
-  font-size: 52px;
-  line-height: 1;
+  font-size: 72px;
   font-weight: 700;
+  line-height: .9;
+  letter-spacing: -2px;
 }
 
 .card-price sup {
   font-size: 12px;
-  vertical-align: top;
+  position: relative;
+  top: -.6em;
+}
+
+/* ---------------- TABLET ---------------- */
+
+@media (max-width: 1200px) {
+
+  .cards-new {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 32px;
+  }
+
+  .cards-new > div {
+    min-height: 700px;
+  }
+
+  .card-content h3 {
+    font-size: 48px;
+  }
+
+  .card-content p {
+    font-size: 19px;
+  }
+
+  .card-price .price {
+    font-size: 64px;
+  }
 }
 
 /* ---------------- MOBILE ---------------- */
 
-@media (max-width: 991px) {
-  .cards-new {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 767px) {
+
   .cards-new {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .cards-new > div {
+    min-height: auto;
   }
 
   .card-image img {
@@ -194,22 +163,29 @@
   }
 
   .card-content {
-    padding: 20px;
+    padding: 24px 22px;
   }
 
   .card-content h3 {
-    font-size: 30px;
+    font-size: 32px;
+    margin-bottom: 16px;
+    letter-spacing: 0;
   }
 
   .card-content p {
     font-size: 16px;
+    line-height: 1.6;
   }
 
   .card-price {
-    padding: 0 20px 20px;
+    padding: 0 22px 24px;
+  }
+
+  .card-price p {
+    font-size: 18px;
   }
 
   .card-price .price {
-    font-size: 42px;
+    font-size: 48px;
   }
 }
