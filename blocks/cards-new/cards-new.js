@@ -6,22 +6,19 @@ export default function decorate(block) {
     modal.className = 'info-modal';
 
     modal.innerHTML = `
-<div class="info-modal-overlay"></div>
+      <div class="info-modal-overlay"></div>
 
-<div class="info-modal-content">
+      <div class="info-modal-content">
 
-    <div class="modal-body"></div>
+        <button class="modal-close">&times;</button>
 
-    <button class="modal-close" aria-label="Close">
-        &times;
-    </button>
+        <div class="modal-body"></div>
 
-</div>
-`;
+      </div>
+    `;
 
     document.body.append(modal);
 
-    // Close modal
     modal.querySelector('.modal-close').addEventListener('click', () => {
       modal.classList.remove('show');
     });
@@ -36,41 +33,46 @@ export default function decorate(block) {
 
     if (cols.length < 3) return;
 
-    /* ---------------- Image ---------------- */
+    /* Image */
 
     cols[0].classList.add('card-image');
 
     const picture = cols[0].querySelector('picture');
 
-    // Read popup content from 4th column
     let popupContent = '';
 
     if (cols[3]) {
       popupContent = cols[3].innerHTML;
-      cols[3].remove(); // Hide authoring column
+      cols[3].remove();
     }
 
     if (picture) {
-      const infoBtn = document.createElement('button');
-      infoBtn.className = 'info-button';
-      infoBtn.textContent = 'Info';
+  const infoBtn = document.createElement('button');
 
-      infoBtn.addEventListener('click', () => {
-        const modal = document.querySelector('.info-modal');
+  infoBtn.className = 'info-button';
+  infoBtn.textContent = 'Info';
+  infoBtn.setAttribute('aria-label', 'Info');
 
-        modal.querySelector('.modal-body').innerHTML = popupContent;
+  // Store popup content like Toyota
+  infoBtn.dataset.cutline = popupContent;
 
-        modal.classList.add('show');
-      });
+  infoBtn.addEventListener('click', () => {
+    const modal = document.querySelector('.info-modal');
 
-      cols[0].append(infoBtn);
-    }
+    modal.querySelector('.modal-body').innerHTML =
+      infoBtn.dataset.cutline || '';
 
-    /* ---------------- Content ---------------- */
+    modal.classList.add('show');
+  });
+
+  cols[0].append(infoBtn);
+}
+
+    /* Content */
 
     cols[1].classList.add('card-content');
 
-    /* ---------------- Price ---------------- */
+    /* Price */
 
     cols[2].classList.add('card-price');
 
